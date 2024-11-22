@@ -1,0 +1,249 @@
+:root {
+    --verde-claro: #8fb689;
+    --verde-escuro: #006400;
+    --branco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--verde-escuro);
+    background-color: var(--branco);
+}
+
+header {
+    background-color: var(--verde-claro);
+    padding: 20px;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo img {
+    height: 80px;
+    max-width: 100%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+header nav ul li {
+    margin: 0;
+}
+
+header nav ul li a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: var(--verde-escuro);
+}
+
+header .menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--branco);
+    cursor: pointer;
+}
+
+section {
+    padding: 40px 20px; 
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container.reverse {
+    flex-direction: row-reverse;
+    justify-content: flex-start; 
+}
+
+.text {
+    flex: 1;
+    padding: 20px;
+}
+
+.image-container {
+    flex: 1;
+    text-align: center;
+    margin: 20px 0;
+    position: relative; 
+}
+
+.image-container img {
+    width: 100%; 
+}
+
+
+@keyframes brilhoGiro {
+    0% {
+        box-shadow: 0 0 10px 5px rgba(0, 100, 0, 0.5), 0 0 20px 10px rgba(0, 100, 0, 0.4), 0 0 30px 15px rgba(0, 100, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 15px 7px rgba(0, 100, 0, 1), 0 0 25px 12px rgba(0, 100, 0, 0.8), 0 0 35px 20px rgba(0, 100, 0, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 10px 5px rgba(0, 100, 0, 0.5), 0 0 20px 10px rgba(0, 100, 0, 0.4), 0 0 30px 15px rgba(0, 100, 0, 0.3);
+    }
+}
+
+
+.image-container img {
+    animation: brilhoGiro 3s infinite alternate;
+}
+
+.profile-pic {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.contact {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.contact .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-info li i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--verde-claro); 
+}
+
+.contact-info li strong {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.contact-info li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+.contact-info li a:hover {
+    color: var(--verde-claro); 
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+        background-color: var(--verde-claro);
+        position: absolute;
+        top: 75px; 
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        display: none;
+    }
+
+    header .menu-icon {
+        display: block;
+        cursor: pointer; 
+        z-index: 2; 
+    }
+
+    header nav ul.show-menu {
+        display: flex;
+    }
+
+    body.menu-open #about {
+        margin-top: 100px; 
+    }
+
+    header {
+        position: relative;
+        z-index: 2;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .image-container img {
+        width: 80%; 
+    }
+}
+
+footer {
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+    text-align: center;
+    padding: 10px;
+}
